@@ -8,12 +8,12 @@ interface NavbarProps {
 }
 
 const navItems: NavItem[] = [
-  { label: 'Home', href: '#home' },
-  { label: 'Departments', href: '#departments' },
-  { label: 'Services', href: '#services' },
-  { label: 'Documents', href: '#documents' },
-  { label: 'Gallery', href: '#gallery' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '/#home' },
+  { label: 'Departments', href: '/#departments' },
+  { label: 'Services', href: '/#services' },
+  { label: 'Documents', href: '/#documents' },
+  { label: 'Gallery', href: '/#gallery' },
+  { label: 'Contact', href: '/#contact' },
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleTheme }) => {

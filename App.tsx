@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { Departments } from './components/Departments';
-import { Services } from './components/Services';
-import { Documents } from './components/Documents';
-import { Gallery } from './components/Gallery';
-import { CovidGuidelines } from './components/CovidGuidelines';
 import { Footer } from './components/Footer';
+import { Home } from './pages/Home';
+import { GalleryPage } from './pages/GalleryPage';
 
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -22,18 +19,18 @@ const App: React.FC = () => {
   const toggleTheme = () => setDarkMode(!darkMode);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900 transition-colors duration-300">
-      <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
-      <main>
-        <Hero />
-        <Services />
-        <Departments />
-        <Documents />
-        <Gallery />
-        <CovidGuidelines />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="min-h-screen bg-white dark:bg-slate-900 transition-colors duration-300">
+        <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/gallery" element={<GalleryPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 };
 
